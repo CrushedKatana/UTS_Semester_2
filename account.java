@@ -1,16 +1,16 @@
-public class account{
+public class Account{
     int accountNumber;
     String name, motherName, phone, email;
     double balance;
 
 
-public account(int accountNumber, String name, String motherName, String phone,  String email, double balance){
-    accountNumber = accountNumber;
-    name = name;
-    motherName = motherName;
-    phone = phone;
-    email = email;
-    balance = balance;
+public Account(int accountNumber, String name, String motherName, String phone,  String email, double balance){
+    this.accountNumber = accountNumber;
+    this.name = name;
+    this.motherName = motherName;
+    this.phone = phone;
+    this.email = email;
+    this.balance = balance;
 }
 
 public void deposit(double amount) {
