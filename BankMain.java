@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class BankMain{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        BankMain bankMn = new BankMain();
+        Bank bank = new Bank();
         
             while (true) {
                 System.out.println("=========================================");
@@ -21,44 +21,44 @@ public class BankMain{
 
             
             System.out.println("Enter choice:");
-            int choice = sc.nextInt();
+            int chosse = sc.nextInt();
             sc.nextLine();
 
-            switch (choice) {
+            switch (chosse) {
                 case 1:
-                    bankMn.addAccount();
+                    bank.addAccount();
                     break;
                 case 2:
-                    bankMn.displayAccounts();
+                    bank.displayAccounts();
                     break;
                 case 3:
-                    bankMn.sortAccountsByBalance();
+                    bank.sortAccountsByBalance();
                     System.out.println("Accounts sorted by balance in descending order.");
                     break;
                 case 4:
-                    bankMn.displayZeroBalanceAccounts();
+                    bank.displayZeroBalanceAccounts();
                     break;
                 case 5:
                     System.out.println("Enter name keyword:");
                     String name = sc.nextLine();
-                    bankMn.searchAccountsByName(name);
+                    bank.searchAccountsByName(name);
                     break;
                 case 6:
                     System.out.println("Enter account number:");
                     String accNumber = sc.nextLine();
                     System.out.println("Enter amount to withdraw:");
                     double withdrawAmount = sc.nextDouble();
-                    bankMn.withdraw(accNumber, withdrawAmount);
+                    bank.withdraw(accNumber, withdrawAmount);
                     break;
                 case 7:
                     System.out.println("Enter account number:");
                     String accNum = sc.nextLine();
                     System.out.println("Enter amount to deposit:");
                     double depositAmount = sc.nextDouble();
-                    bankMn.deposit(accNum, depositAmount);
+                    bank.deposit(accNum, depositAmount);
                     break;
                 case 0:
-                    System.out.println("Exiting...");
+                    System.out.println("Exit");
                     return;
                 default:
                     System.out.println("Invalid choice. Please enter again.");

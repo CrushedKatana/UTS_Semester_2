@@ -86,4 +86,8 @@ public class Bank {
         return null;
     }
     
+    public void sortAccountsByBalance() {
+        listAcc.sort((a1, a2) -> Double.compare(a2.getBalance(), a1.getBalance()));
+    }
 }
+    
