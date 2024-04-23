@@ -9,7 +9,7 @@ public class Bank {
     public void addAccount() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Account Number:");
-        String accountNumber = sc.nextLine();
+        int accountNumber = Integer.parseInt(sc.nextLine());
         System.out.println("Enter Name:");
         String name = sc.nextLine();
         System.out.println("Enter Mother's Name:");
@@ -21,7 +21,7 @@ public class Bank {
         System.out.println("Enter Initial Balance:");
         double balance = Double.parseDouble(sc.nextLine());
 
-        listAcc.add(new Account(0, name, motherName, phone, email, balance));
+        listAcc.add(new Account(accountNumber, name, motherName, phone, email, balance));
         System.out.println("Account successfully added!");
     }
 
@@ -34,7 +34,7 @@ public class Bank {
     public void setAccountBalance(String accountNumber, double newBalance) {
         Account account = findAccount(accountNumber);
         if (account != null) {
-            account.setBalance(newBalance);
+            account.deposit(newBalance);
             System.out.println("Balance successfully updated.");
         } else {
             System.out.println("Account not found.");
@@ -60,7 +60,7 @@ public class Bank {
     public void withdraw(String accountNumber, double amount) {
         Account account = findAccount(accountNumber);
         if (account != null && account.getBalance() >= amount) {
-            account.setBalance(account.getBalance() - amount);
+            account.withdraw(amount);
             System.out.println("Withdrawal successful. New balance: $" + account.getBalance());
         } else {
             System.out.println("Withdrawal failed. Insufficient funds or account not found.");
@@ -70,7 +70,7 @@ public class Bank {
     public void deposit(String accountNumber, double amount) {
         Account account = findAccount(accountNumber);
         if (account != null) {
-            account.setBalance(account.getBalance() + amount);
+            account.deposit(amount);
             System.out.println("Deposit successful. New balance: $" + account.getBalance());
         } else {
             System.out.println("Deposit failed. Account not found.");
