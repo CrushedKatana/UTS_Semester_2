@@ -18,6 +18,7 @@ public void deposit(double amount) {
         System.out.println("Deposit successful. New balance: $" + balance);
     }
 
+
     public void withdraw(double amount) {
         if (balance >= amount) {
             balance -= amount;
